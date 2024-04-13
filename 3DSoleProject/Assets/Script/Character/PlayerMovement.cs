@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private Transform characterBody;
+    [SerializeField]
+    private Transform cameraArm;
+
+
     public float playerMoveSpeed = 5.0f;
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
@@ -11,12 +17,20 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        playerAnimator = GetComponent<Animator>();
+        playerAnimator = characterBody. GetComponent<Animator>();
     }
 
-    public void CharacterMove(float horizontalInput, float verticalInput)
+    public void CharacterMove(Vector2 moveInput)
     {
-        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput) * playerMoveSpeed * Time.deltaTime;
+
+        Vector3 lookForward = new Vector3(cameraArm.forward.x, 0.0f, cameraArm.forward.z).normalized;
+        Vector3 lookRight = new Vector3(cameraArm.right.x, 0.0f, cameraArm.right.z).normalized;
+
+        Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
+
+        characterBody.forward = lookForward;
+
+        Vector3 movement = moveDir * playerMoveSpeed * Time.deltaTime;
         playerRigidbody.MovePosition(transform.position + movement);
     }
 

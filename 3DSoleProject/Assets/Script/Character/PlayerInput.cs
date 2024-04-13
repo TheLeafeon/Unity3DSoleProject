@@ -13,12 +13,14 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        playerMovement.CharacterMove(horizontalInput, verticalInput);
+        bool isMove = moveInput.magnitude != 0;
 
-        if(horizontalInput != 0.0f || verticalInput != 0.0f)
+        playerMovement.CharacterMove(moveInput);
+
+
+        if(isMove)
         {
             playerMovement.SetWalkingAnimation(true);
         }
