@@ -5,30 +5,44 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private PlayerMovement playerMovement;
+    private PlayerAttack playerAttack;
+    public bool isAttacking = false;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        bool isMove = moveInput.magnitude != 0;
-
-        playerMovement.CharacterMove(moveInput);
-
-
-        if(isMove)
+        if(!isAttacking)
         {
-            playerMovement.SetWalkingAnimation(true);
+            Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+            bool isMove = moveInput.magnitude != 0;
+
+            playerMovement.CharacterMove(moveInput);
+
+            if (isMove)
+            {
+                playerMovement.SetWalkingAnimation(true);
+            }
+            else
+            {
+                playerMovement.SetWalkingAnimation(false);
+            }
         }
-        else
+
+        //공격 키 입력
+        if(Input.GetButtonDown("Fire1"))
         {
-            playerMovement.SetWalkingAnimation(false);
+            playerAttack.SetAttackAnimation();
+            UnityEngine.Debug.Log("Attack");
+            isAttacking = true;
         }
     }
 
 
+    
 }
