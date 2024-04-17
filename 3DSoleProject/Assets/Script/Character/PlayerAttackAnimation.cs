@@ -14,6 +14,7 @@ public class PlayerAttackAnimation : MonoBehaviour
         playerInput = characterBase.GetComponent<PlayerInput>();
     }
 
+
     public void AttackEnd()
     {
         playerInput.isAttacking = false;

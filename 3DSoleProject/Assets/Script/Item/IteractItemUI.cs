@@ -10,10 +10,11 @@ public class IteractItemUI : MonoBehaviour
     [SerializeField]
     private Transform ItemBody;
 
-    //패널
-    [SerializeField]
-    private Transform cameraArm;
+    ////패널
+    //[SerializeField]
+    //private Transform cameraArm;
 
+    public float halfSize = 1.0f;
     //private Transform itemCenter;
 
     private void Awake()
@@ -27,7 +28,7 @@ public class IteractItemUI : MonoBehaviour
        if(ItemBody != null)
         {
             Gizmos.color = Color.red;
-            //Gizmos.DrawSphere(ItemBody.position, halfSize);
+            Gizmos.DrawSphere(transform.position, halfSize);
         }
     }
 }
