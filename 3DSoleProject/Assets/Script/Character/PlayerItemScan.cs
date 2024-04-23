@@ -49,7 +49,7 @@ public class PlayerItemScan : MonoBehaviour
             {
                 itemInformationPanel.SetActive(true);
                 itemNameText.text = raycastItem.itemName;
-                itemSpriteImage.sprite = raycastItem.ItemImage;
+                itemSpriteImage.sprite = raycastItem.itemImage;
             }
 
         }
