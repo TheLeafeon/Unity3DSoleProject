@@ -32,6 +32,18 @@ public class ItemInformation : MonoBehaviour
     {
         bool isUesd = false;
 
+        switch (itemType)
+        {
+            case ItemType.Equipment:
+                UnityEngine.Debug.Log(itemName + "은(는) 장비아이템 입니다.");
+                break; 
+            case ItemType.Consumables:
+                UnityEngine.Debug.Log(itemName + "은(는) 소비아이템 입니다.");
+                break;
+            case ItemType.Etc:
+                UnityEngine.Debug.Log(itemName + "은(는) 기타아이템 입니다.");
+                break;
+        }
         foreach (ItemEffect effect in effects)
         {
             isUesd = effect.ExcuteRole();
