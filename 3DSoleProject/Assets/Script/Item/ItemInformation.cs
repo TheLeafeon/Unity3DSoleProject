@@ -15,7 +15,7 @@ public class ItemInformation : MonoBehaviour
     public ItemType itemType;
     public string itemName;
     public Sprite itemImage;
-
+    public List<ItemEffect> effects;
     
     //public ItemInformation GetItem()
     //{
@@ -25,5 +25,18 @@ public class ItemInformation : MonoBehaviour
     public void DestroyItem()
     {
         Destroy(gameObject);
+    }
+
+
+    public bool Use()
+    {
+        bool isUesd = false;
+
+        foreach (ItemEffect effect in effects)
+        {
+            isUesd = effect.ExcuteRole();
+        }
+
+        return isUesd;
     }
 }

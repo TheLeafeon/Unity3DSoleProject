@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    
-
-
     #region Singleton
     public static Inventory instance;
     private void Awake()
@@ -21,8 +18,8 @@ public class Inventory : MonoBehaviour
     #endregion
 
 
-    public delegate void OnSlotCountChange(int val);
-    public OnSlotCountChange onSlotCountChange;
+    //public delegate void OnSlotCountChange(int val);
+    //public OnSlotCountChange onSlotCountChange;
 
 
     public delegate void OnChangeItem();
@@ -34,14 +31,15 @@ public class Inventory : MonoBehaviour
 
 
     private int slotCount;
+
     public int SlotCount
     {
         get => slotCount;
-        set
-        {
-            slotCount = value;
-            onSlotCountChange.Invoke(slotCount);
-        }
+        //set
+        //{
+        //    slotCount = value;
+        //    onSlotCountChange.Invoke(slotCount);
+        //}
     }
 
     void Start()
@@ -79,8 +77,15 @@ public class Inventory : MonoBehaviour
             if (AddItem(fieldItems))
             {
                 UnityEngine.Debug.Log("OnTriggerEnter" + collision);
-                fieldItems.DestroyItem();
+                //fieldItems.DestroyItem();
             }
         }
+    }
+
+    public void RemoveItem(int _index)
+    {
+        UnityEngine.Debug.Log("_index: " + _index);
+        items.RemoveAt(_index);
+        onChangeItem.Invoke();
     }
 }

@@ -16,27 +16,28 @@ public class InventoryUI : MonoBehaviour
     {
         inven = Inventory.instance;
         slots = slotHolder.GetComponentsInChildren<Slot>();
-        inven.onSlotCountChange += SlotChange;
+        //inven.onSlotCountChange += SlotChange;
 
         inven.onChangeItem += RedrawSlotUI;
 
         inventoryPanel.SetActive(activeinventory);
     }
 
-    private void SlotChange(int val)
-    {
-        for(int i = 0; i<slots.Length; i++)
-        {
-            if(i< inven.SlotCount)
-            {
-                slots[i].GetComponent<Button>().interactable = true;
-            }
-            else
-            {
-                slots[i].GetComponent<Button>().interactable = false;
-            }
-        }
-    }
+    //private void SlotChange(int val)
+    //{
+    //    for(int i = 0; i<slots.Length; i++)
+    //    {
+           
+    //        if(i< inven.SlotCount)
+    //        {
+    //            slots[i].GetComponent<Button>().interactable = true;
+    //        }
+    //        else
+    //        {
+    //            slots[i].GetComponent<Button>().interactable = false;
+    //        }
+    //    }
+    //}
 
     private void Update()
     {
@@ -46,17 +47,16 @@ public class InventoryUI : MonoBehaviour
             inventoryPanel.SetActive(activeinventory);
         }
     }
-
-    public void AddSlot()
-    {
-        inven.SlotCount++;
-    }
-
     private void RedrawSlotUI()
     {
+        
+
         for (int i = 0; i < slots.Length; i++)
         {
+            
+
             slots[i].RemoveSlot();
+            slots[i].slotNum = i;
         }
 
         for (int i=0; i<inven.items.Count; i++)
