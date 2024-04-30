@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Equipment,
+    Weapon,
     Consumables,
     Etc
 }
@@ -17,28 +17,33 @@ public class ItemInformation : MonoBehaviour
     public Sprite itemImage;
     public List<ItemEffect> effects;
     
-    //public ItemInformation GetItem()
-    //{
-    //    return this;
-    //    return item;
-    //}
+
+
+
+    //아이템 삭제
     public void DestroyItem()
     {
         Destroy(gameObject);
     }
 
-
+    //아이템 사용
     public bool Use()
     {
         bool isUesd = false;
 
         switch (itemType)
         {
-            case ItemType.Equipment:
-                UnityEngine.Debug.Log(itemName + "은(는) 장비아이템 입니다.");
+            case ItemType.Weapon:
+                UnityEngine.Debug.Log(itemName + "은(는) 무기아이템 입니다.");
+
+
+
                 break; 
             case ItemType.Consumables:
                 UnityEngine.Debug.Log(itemName + "은(는) 소비아이템 입니다.");
+
+
+
                 break;
             case ItemType.Etc:
                 UnityEngine.Debug.Log(itemName + "은(는) 기타아이템 입니다.");
