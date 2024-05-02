@@ -23,31 +23,26 @@ public class Inventory : MonoBehaviour
     public OnChangeItem onChangeItem;
 
 
-    public List<ItemInformation> items = new List<ItemInformation>();
+    public List<ItemInformation> items = new List<ItemInformation>(); //content
 
-
+    //최대 슬롯 개수
     private int slotCount;
-
-    public int SlotCount
-    {
-        get => slotCount;
-
-    }
 
     void Start()
     {
         slotCount = 12;
     }
 
+    //아이템 추가
     public bool AddItem(ItemInformation _item)
     {
 
-        UnityEngine.Debug.Log(items.Count + " / " + SlotCount);
+        UnityEngine.Debug.Log(items.Count + " / " + slotCount);
 
-        if (items.Count < SlotCount)
+        if (items.Count < slotCount)
         {
 
-            items.Add(_item);
+            items.Add(_item); //slot에 OnTriggerEnter 한걸 넣는다.
             if (onChangeItem != null)
             {
                 onChangeItem.Invoke();
@@ -57,6 +52,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
     
+    //아이템 획득
     private void OnTriggerEnter(Collider collision)
     {
        
@@ -74,6 +70,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //아이템 제거
     public void RemoveItem(int _index)
     {
         UnityEngine.Debug.Log("_index: " + _index);

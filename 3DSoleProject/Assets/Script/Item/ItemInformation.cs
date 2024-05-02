@@ -36,23 +36,24 @@ public class ItemInformation : MonoBehaviour
             case ItemType.Weapon:
                 UnityEngine.Debug.Log(itemName + "은(는) 무기아이템 입니다.");
 
-
+                //isUesd = Equip.equipinstance.EquipItem(this);
+                isUesd = Equip.equipinstance.EquipItem(this.gameObject.GetComponent<ItemInformation>());
 
                 break; 
             case ItemType.Consumables:
                 UnityEngine.Debug.Log(itemName + "은(는) 소비아이템 입니다.");
 
-
+                foreach (ItemEffect effect in effects)
+                {
+                    isUesd = effect.ExcuteRole();
+                }
 
                 break;
             case ItemType.Etc:
                 UnityEngine.Debug.Log(itemName + "은(는) 기타아이템 입니다.");
                 break;
         }
-        foreach (ItemEffect effect in effects)
-        {
-            isUesd = effect.ExcuteRole();
-        }
+
 
         return isUesd;
     }

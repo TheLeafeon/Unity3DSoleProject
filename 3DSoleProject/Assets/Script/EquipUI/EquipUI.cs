@@ -5,24 +5,47 @@ using UnityEngine.UI;
 
 public class EquipUI : MonoBehaviour
 {
-    Player _player;
-    public GameObject equipPanel;
-    bool activeEquip = false;
-    public EquipSlot slot;
+    Equip equip;
+    public GameObject EquipPanel;
+    bool activeEquipUI = false;
 
-    private void start()
+    public EquipSlot equipSlot;
+
+    private void Start()
     {
-        equipPanel.SetActive(activeEquip);
-        _player = Player.PlayerInstance;
-    }
+        equip = Equip.equipinstance;
+        equip.onChangeEquip += RedrawEquipSlotUI;
+        //equipSlot = gameObject.GetComponent<EquipSlot>();
 
+        EquipPanel.SetActive(activeEquipUI);
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            activeEquip = !activeEquip;
-            equipPanel.SetActive(activeEquip);
+            activeEquipUI = !activeEquipUI;
+            EquipPanel.SetActive(activeEquipUI);
         }
     }
+
+    private void RedrawEquipSlotUI()
+    {
+
+        // equipSlot.UpdateSlotUI();
+
+        // null 체크를 해야합니다.
+        if (equipSlot != null)
+        {
+            equipSlot.itemInformation = equip.equipItem;
+            equipSlot.UpdateSlotUI();
+        }
+        else
+        {
+
+            Debug.LogWarning("EquipSlot을 찾을 수 없습니다.");
+        }
+    }
+
+
 }

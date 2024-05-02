@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class EquipSlot : MonoBehaviour
 {
+    public Image equipWeaponIcon;
+
     public ItemInformation itemInformation;
-    public Image itemIcon;
 
     public void UpdateSlotUI()
     {
-        itemIcon.sprite = itemInformation.itemImage;
 
-        itemIcon.gameObject.SetActive(true);
+        UnityEngine.Debug.Log("Update Slot UI");
+        equipWeaponIcon.sprite = itemInformation.itemImage;
+
+        equipWeaponIcon.gameObject.SetActive(true);
     }
     public void RemoveSlot()
     {
-        itemInformation = null;
-        itemIcon.gameObject.SetActive(false);
+        equipWeaponIcon = null;
+        equipWeaponIcon.gameObject.SetActive(false);
     }
-
 
 
 }

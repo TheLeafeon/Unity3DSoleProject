@@ -24,10 +24,5 @@ public class Player : MonoBehaviour
     public int attackPower_EquipWeapon;
 
 
-    private void Update()
-    {
-        UnityEngine.Debug.Log("장착중인 무기 공격력은 "+ attackPower_EquipWeapon + " 입니다.");
-    }
-
 
 }

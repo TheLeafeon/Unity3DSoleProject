@@ -6,35 +6,24 @@ using UnityEngine;
 public class ItemEquipment :  ItemEffect
 {
 
-
-    [SerializeField]
-    private GameObject weaponAttachPoint;
-
-    bool playerEquip = false;
-
     public int attackPower_Weapon;
 
-    private void Start()
-    {
-        // Inventory.instance.RemoveItem(slotNum);
-        
-    }
+    // 다른 오브젝트에 대한 참조
+    public GameObject targetObject;
 
+    // targetObject에 연결된 ItemInformation 컴포넌트
+    private ItemInformation itemInformation;
+
+    public void Start()
+    {
+        itemInformation = targetObject.GetComponent<ItemInformation>();
+    }
     public override bool ExcuteRole()
     {
-        if (playerEquip == false)
-        {
-            UnityEngine.Debug.Log("장비 장착 완료!");
-
-            Player.PlayerInstance.attackPower_EquipWeapon = attackPower_Weapon;
-            playerEquip = true;
-        }
-        else
-        {
-            Player.PlayerInstance.attackPower_EquipWeapon = attackPower_Weapon;
-
-            UnityEngine.Debug.Log("장비 교체 완료!");
-        }
+       
+            Equip.equipinstance.EquipItem(itemInformation);
+       
+        //Equip.equipinstance.EquipItem(ItemInformation _item);
 
         return true;
     }
