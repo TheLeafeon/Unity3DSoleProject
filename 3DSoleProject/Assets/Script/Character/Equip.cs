@@ -30,15 +30,11 @@ public class Equip : MonoBehaviour
     //무기 정보: 공격력, 무기 타입 등.
     public WeaponInformation equipWeaponInformation;
 
-
     public bool isEquip;
-
-
 
     void Start()
     {
         isEquip = false;
-        
     }
 
     //, WeaponInformation _weaponInformation

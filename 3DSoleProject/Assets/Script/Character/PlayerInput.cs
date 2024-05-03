@@ -6,7 +6,9 @@ public class PlayerInput : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     private PlayerAttack playerAttack;
-    public bool isAttacking = false;
+    //public bool isAttacking = false;
+
+    
 
     private void Awake()
     {
@@ -16,7 +18,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if(!isAttacking)
+        if(!Player.PlayerInstance.isAttacking)
         {
             Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
@@ -39,7 +41,7 @@ public class PlayerInput : MonoBehaviour
         {
             playerAttack.SetAttackAnimation();
             UnityEngine.Debug.Log("Attack");
-            isAttacking = true;
+            Player.PlayerInstance.isAttacking = true;
         }
     }
 

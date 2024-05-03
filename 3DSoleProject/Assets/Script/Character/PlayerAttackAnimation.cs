@@ -17,7 +17,7 @@ public class PlayerAttackAnimation : MonoBehaviour
 
     public void AttackEnd()
     {
-        playerInput.isAttacking = false;
+        Player.PlayerInstance.isAttacking = false;
     }
 
 

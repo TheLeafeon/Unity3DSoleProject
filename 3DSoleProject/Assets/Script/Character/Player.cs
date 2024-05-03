@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
 
     public int attackPower_EquipWeapon;
 
-
+    public bool isAttacking;
+    
+    private void Start()
+    {
+        isAttacking = false;
+    }
 
 }
