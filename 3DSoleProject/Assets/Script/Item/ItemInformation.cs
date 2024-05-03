@@ -30,7 +30,6 @@ public class ItemInformation : MonoBehaviour
     public bool Use()
     {
         bool isUesd = false;
-
         switch (itemType)
         {
             case ItemType.Weapon:

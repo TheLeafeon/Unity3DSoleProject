@@ -66,6 +66,7 @@ public class Inventory : MonoBehaviour
             {
                 UnityEngine.Debug.Log("OnTriggerEnter" + collision);
                 //fieldItems.DestroyItem();
+                fieldItems.gameObject.SetActive(false);
             }
         }
     }
