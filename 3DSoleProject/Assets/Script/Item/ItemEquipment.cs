@@ -14,16 +14,18 @@ public class ItemEquipment :  ItemEffect
     // targetObject에 연결된 ItemInformation 컴포넌트
     private ItemInformation itemInformation;
 
+    private WeaponInformation weaponInformation;
+
+
     public void Start()
     {
         itemInformation = targetObject.GetComponent<ItemInformation>();
+        weaponInformation = targetObject.GetComponent<WeaponInformation>();
     }
     public override bool ExcuteRole()
     {
-       
-            Equip.equipinstance.EquipItem(itemInformation);
-       
-        //Equip.equipinstance.EquipItem(ItemInformation _item);
+        //, weaponInformation
+        //Equip.equipinstance.EquipItem(itemInformation);
 
         return true;
     }
