@@ -18,8 +18,6 @@ public class ItemInformation : MonoBehaviour
     public List<ItemEffect> effects;
     
 
-
-
     //아이템 삭제
     public void DestroyItem()
     {
@@ -35,8 +33,8 @@ public class ItemInformation : MonoBehaviour
             case ItemType.Weapon:
                 UnityEngine.Debug.Log(itemName + "은(는) 무기아이템 입니다.");
 
-                //isUesd = Equip.equipinstance.EquipItem(this);
-                isUesd = Equip.equipinstance.EquipItem(this.gameObject.GetComponent<ItemInformation>());
+
+                isUesd = Equip.equipinstance.EquipItem(this.gameObject.GetComponent<ItemInformation>(), this.gameObject.GetComponent<WeaponInformation>());
 
                 break; 
             case ItemType.Consumables:

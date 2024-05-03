@@ -13,6 +13,6 @@ public enum WeaponType
 public class WeaponInformation : MonoBehaviour
 {
     public WeaponType weaponType;
-    public int WeaponAttackPower;
+    public int weaponAttackPower;
     
 }
