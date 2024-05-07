@@ -10,8 +10,6 @@ public class PlayerAttack : MonoBehaviour
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
 
-
-
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -21,8 +19,6 @@ public class PlayerAttack : MonoBehaviour
     public void SetAttackAnimation()
     {
         playerAnimator.SetTrigger("isAttack");
-
-        
     }
 
 }

@@ -37,7 +37,7 @@ public class PlayerInput : MonoBehaviour
         }
 
         //공격 키 입력
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && Equip.equipinstance.equipItem != null)
         {
             playerAttack.SetAttackAnimation();
             UnityEngine.Debug.Log("Attack");

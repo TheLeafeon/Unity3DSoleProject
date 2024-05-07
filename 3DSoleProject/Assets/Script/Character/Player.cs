@@ -18,16 +18,15 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-
-    public GameObject equipWeapon;
-
-    public int attackPower_EquipWeapon;
-
     public bool isAttacking;
-    
+
     private void Start()
     {
         isAttacking = false;
     }
 
+    private void Update()
+    {
+        
+    }
 }

@@ -22,7 +22,6 @@ public class EquipWeaponSetActive : MonoBehaviour
     {
         for(int i = 0;i<swords.Length; i++)
         {
-            UnityEngine.Debug.Log("for문 돌아가는중");
             ItemInformation nowItem = swords[i].GetComponent<ItemInformation>();
             if (nowItem.itemName == equip.equipItem.itemName)
             {

@@ -10,6 +10,14 @@ public class AttackCollision : MonoBehaviour
         if(collision.CompareTag("Monster") && Player.PlayerInstance.isAttacking )
         {
             UnityEngine.Debug.Log("공격 성공!");
+
+            MonsterTakeDamage monsters = collision.GetComponent<MonsterTakeDamage>();
+
+            if (monsters != null)
+            {
+                monsters.TakeDamage(Equip.equipinstance.equipWeaponInformation.weaponAttackPower);
+
+            }
         }
     }
 }

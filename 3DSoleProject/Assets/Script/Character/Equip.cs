@@ -24,6 +24,7 @@ public class Equip : MonoBehaviour
     //이거 왜 퍼블릭이지
     public ItemInformation equipItem;
 
+    //교체용 임시 인벤토리
     [SerializeField]
     private ItemInformation otherInventory;
 
@@ -31,6 +32,12 @@ public class Equip : MonoBehaviour
     public WeaponInformation equipWeaponInformation;
 
     public bool isEquip;
+
+    ////여기서부터는 애니메이션을 위함
+    //[SerializeField]
+    //private Transform characterBody;
+
+    private Animator playerAnimator;
 
     void Start()
     {
@@ -54,11 +61,31 @@ public class Equip : MonoBehaviour
                 onChangeEquip.Invoke();
 
             }
-
+            isEquip = true;
             return true;
         }
         else
         {
+            //임시로 넣어놓기
+            otherInventory = equipItem;
+
+            UnityEngine.Debug.Log("장착 무기의 공격력: " + _weaponInformation.weaponAttackPower);
+            equipItem = _item;
+            equipWeaponInformation = _weaponInformation;
+
+            UnityEngine.Debug.Log("무기 교체");
+            Inventory.instance.AddItem(otherInventory);
+
+            if (onChangeEquip != null)
+            {
+                onChangeEquip.Invoke();
+
+            }
+
+            otherInventory = null;
+
+
+
             return true;
         }
     }
