@@ -59,7 +59,6 @@ public class Equip : MonoBehaviour
             if (onChangeEquip != null)
             {
                 onChangeEquip.Invoke();
-
             }
             isEquip = true;
             return true;

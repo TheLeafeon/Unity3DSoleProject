@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField]
-    private Transform characterBody;
+    //[SerializeField]
+    //private Transform characterBody;
 
-    private Rigidbody playerRigidbody;
-    private Animator playerAnimator;
+    //private Rigidbody playerRigidbody;
+    //private Animator playerAnimator;
 
-    private void Awake()
-    {
-        playerRigidbody = GetComponent<Rigidbody>();
-        playerAnimator = characterBody.GetComponent<Animator>();
-    }
+    //private void Awake()
+    //{
+    //    playerRigidbody = GetComponent<Rigidbody>();
+    //    playerAnimator = characterBody.GetComponent<Animator>();
+    //}
 
-    public void SetAttackAnimation()
-    {
-        playerAnimator.SetTrigger("isAttack");
-    }
+    //public void SetAttackAnimation()
+    //{
+    //    playerAnimator.SetTrigger("isAttack");
+    //}
 
 }

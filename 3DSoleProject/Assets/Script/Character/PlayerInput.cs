@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private PlayerAttack playerAttack;
+    //private PlayerAttack playerAttack;
     //public bool isAttacking = false;
 
     
@@ -13,7 +13,7 @@ public class PlayerInput : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        playerAttack = GetComponent<PlayerAttack>();
+        //playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Update()
@@ -39,8 +39,8 @@ public class PlayerInput : MonoBehaviour
         //공격 키 입력
         if(Input.GetButtonDown("Fire1") && Equip.equipinstance.equipItem != null)
         {
-            playerAttack.SetAttackAnimation();
-            UnityEngine.Debug.Log("Attack");
+            //playerAttack.SetAttackAnimation();
+            //UnityEngine.Debug.Log("Attack");
             Player.PlayerInstance.isAttacking = true;
         }
     }
