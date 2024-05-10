@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
-        playerAnimator = characterBody. GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
+
     }
 
     public void CharacterMove(Vector2 moveInput)
@@ -38,4 +39,5 @@ public class PlayerMovement : MonoBehaviour
     {
         playerAnimator.SetBool("isWalking", isWalking);
     }
+
 }
