@@ -6,6 +6,9 @@ public class PlayerAttack : MonoBehaviour
 {
     private Animator playerAnimator;
 
+    [SerializeField]
+    public Transform WeaponPoint;
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
@@ -19,6 +22,9 @@ public class PlayerAttack : MonoBehaviour
                 SwordAttack();
                 break;
             case WeaponType.Gun:
+
+                playerAnimator.SetTrigger("isShoot");
+
                 GunAttack();
                 break;
             case WeaponType.Spear:
@@ -34,18 +40,23 @@ public class PlayerAttack : MonoBehaviour
 
     private void GunAttack()
     {
-        playerAnimator.SetTrigger("isShoot");
+        Shooting shooting = WeaponPoint.GetComponentInChildren<Shooting>();
+
+        if (shooting != null)
+        {
+            shooting.Launch();
+        }
+        else
+        {
+            UnityEngine.Debug.Log("³Î ÂüÁ¶");
+        }
+        
     }
 
     private void SpearAttack()
     {
 
     }
-
-    //public void SetAttackAnimation()
-    //{
-    //    playerAnimator.SetTrigger("isAttack");
-    //}
 
     public void AttackEnd()
     {
