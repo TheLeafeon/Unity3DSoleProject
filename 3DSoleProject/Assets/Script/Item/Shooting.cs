@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour
 
         UnityEngine.Debug.Log("½´ÆÃ");
 
-        Vector3 lookForward = new Vector3(ShotPoint.forward.x ,0.0f, ShotPoint.forward.z);
+        Vector3 lookForward = new Vector3(ShotPoint.forward.x ,0.0f, ShotPoint.forward.z).normalized;
 
         GameObject projectileObject = Instantiate(projectilePrefab, ShotPoint.position, Quaternion.identity);
 

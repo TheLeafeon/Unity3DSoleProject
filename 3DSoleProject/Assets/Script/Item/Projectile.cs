@@ -14,8 +14,8 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        //ObjectPooling
-        if (transform.position.magnitude > 1000.0f)
+        //ObjectPooling 으로 변경 예정
+        if (transform.position.magnitude > 100.0f)
         {
             Destroy(gameObject);
         }
@@ -26,16 +26,17 @@ public class Projectile : MonoBehaviour
         projectileRigidbody.AddForce(direction * force);
     }
 
-    private void OnCollisionEnter(Collision monster)
+    private void OnTriggerEnter(Collider collision)
     {
-        MonsterTakeDamage hitMonster = monster.collider.GetComponent<MonsterTakeDamage>();
+        UnityEngine.Debug.Log("히트!");
+        MonsterTakeDamage hitMonster = collision.GetComponent<MonsterTakeDamage>();
 
         if (hitMonster != null)
         {
             hitMonster.TakeDamage(Equip.equipinstance.equipWeaponInformation.weaponAttackPower);
         }
 
-        //ObjectPooling
+        //ObjectPooling으로 변경 예정
         Destroy(gameObject);
     }
 }

@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
                 playerAnimator.SetTrigger("isShoot");
 
-                GunAttack();
+                 //GunAttack();
                 break;
             case WeaponType.Spear:
                 SpearAttack();

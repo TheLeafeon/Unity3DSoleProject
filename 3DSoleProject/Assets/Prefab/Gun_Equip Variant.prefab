@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2198603216278276979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3.42, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5413309917135939480}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &5518398064089481331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,19 +69,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000015608379
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.70710695
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071066
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000013038512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1503034428166973567, guid: 8686f34f7f0fac74985bf68d0a92dc89, type: 3}
   ShotPoint: {fileID: 1659972973213402309}
-  bulletspeed: 1
+  bulletspeed: 300
 --- !u!4 &5413309917135939480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8df26c190b8525e47923faf7ca479bcf, type: 3}
